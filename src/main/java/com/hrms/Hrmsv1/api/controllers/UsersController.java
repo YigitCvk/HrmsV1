@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hrms.Hrmsv1.business.abstracts.UserService;
+import com.hrms.Hrmsv1.core.utilities.results.DataResult;
 import com.hrms.Hrmsv1.entities.concretes.User;
 
 @RestController
@@ -25,25 +26,25 @@ public class UsersController {
 		super();
 		this.userService = userService;
 	}
-	@PostMapping("/add")
-	public void add(@RequestBody User user) {
-		this.userService.add(user);
-	}
-	
-	@PostMapping("/update")
-	public void update(@RequestBody User user) {
-		this.userService.update(user);
-	}
-	@PostMapping("/delete")
-	public void delete(@PathVariable("id") int id) {
-		this.userService.delete(id);
-	}
-	@GetMapping("/getbyid")
-	public User getById(@PathVariable("id") int id) {
-		return this.userService.getById(id);
-	}
+//	@PostMapping("/add")
+//	public void add(@RequestBody User user) {
+//		this.userService.add(user);
+//	}
+//	
+//	@PostMapping("/update")
+//	public void update(@RequestBody User user) {
+//		this.userService.update(user);
+//	}
+//	@PostMapping("/delete")
+//	public void delete(@PathVariable("id") int id) {
+//		this.userService.delete(id);
+//	}
+//	@GetMapping("/getbyid")
+//	public User getById(@PathVariable("id") int id) {
+//		return this.userService.getById(id);
+//	}
 	@GetMapping("/getall")
-	public List<User> getAll(){
+	public DataResult<List<User>> getAll(){
 		return this.userService.getAll();
 	}
 }
